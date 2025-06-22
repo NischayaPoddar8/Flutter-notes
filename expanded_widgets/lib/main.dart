@@ -18,10 +18,10 @@ class Home extends StatelessWidget {
       body:Row(   
         children: <Widget>[   // we have made a class row having a list of widget data type
         Expanded(
+          flex: 1,
           child: Image(
             image: AssetImage('image/img-1.jpeg'),
           ),
-          flex: 1,
         ),
         Expanded(   // expanded expands the widget and takes as much space available horizontally
           flex: 1,  // ratio in which we want the space to be divided is given by flex
