@@ -8,16 +8,17 @@ class Loading extends StatefulWidget {
 }
 
 class _Loading extends State<Loading> {
-  void getData() async{
-    Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1')); // string is getting converted to uri
-    Map data= jsonDecode(response.body);
-    print(data);
-    print(data['title']);
-  }
+  void getTime() async {
+  Response response = await get(Uri.parse('https://world.free.beeceptor.com/time'));
+  Map data = jsonDecode(response.body);
+  // print(data);   // the data is in a map format
+  String dateTime= data['dateTime'];
+  print(dateTime); // Priniting date time property
+}
   @override
   void initState(){   // initState is called just one time
-    super.initState();
-    getData(); // calls getData function
+    super.initState(); // calls getData function
+    getTime(); 
   }
   @override
   Widget build(BuildContext context) {
