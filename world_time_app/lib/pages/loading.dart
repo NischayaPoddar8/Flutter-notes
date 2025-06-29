@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';  
-import 'package:http/http.dart';
-import 'dart:convert'; // used to convert json to dart
+import 'package:flutter/material.dart';
+import 'package:world_time_app/services/world_time.dart';  
+
 //Loading screen
 class Loading extends StatefulWidget {
   @override
@@ -8,17 +8,13 @@ class Loading extends StatefulWidget {
 }
 
 class _Loading extends State<Loading> {
-  void getTime() async {
-  Response response = await get(Uri.parse('https://world.free.beeceptor.com/time'));
-  Map data = jsonDecode(response.body);
-  // print(data);   // the data is in a map format
-  String dateTime= data['dateTime'];
-  print(dateTime); // Priniting date time property
-}
+  void setWorldTime(){
+    worldTime instance = worldTime(location:'London',flag: 'London.png',url: 'city=london');
+  }
   @override
-  void initState(){   // initState is called just one time
-    super.initState(); // calls getData function
-    getTime(); 
+  void initState() {
+    super.initState();
+    setWorldTime();
   }
   @override
   Widget build(BuildContext context) {
